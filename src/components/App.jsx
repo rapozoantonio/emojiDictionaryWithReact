@@ -3,17 +3,6 @@ import Card from "./Card.jsx";
 import emojipedia from "../emojipedia.js";
 
 
-function createCard(props) {
-  return(
-      <Card 
-            key={props.id}
-            id={props.id}
-            emoji={props.emoji}
-            name={props.name}
-            meaning={props.meaning}
-      />
-  );
-};
 
 function App(props) {
   return (
@@ -22,7 +11,19 @@ function App(props) {
         <span>Antonio's most used emojis</span>
       </h1>
       <dl className="dictionary">
-        {emojipedia.map(createCard)}
+        {emojipedia.map((props) => { return(
+
+            <Card 
+                  key={props.id}
+                  id={props.id}
+                  emoji={props.emoji}
+                  name={props.name}
+                  meaning={props.meaning}
+            />
+
+          );
+        }
+      )};
       </dl>
     </div>
   );
